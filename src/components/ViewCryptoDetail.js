@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, Linking, ScrollView } from 'react-native';
+import SVGImage from 'react-native-svg-image';
 import { Card, CardSection, ViewText, Button } from './common';
 
 class ViewCryptoDetail extends Component {
@@ -19,10 +20,18 @@ class ViewCryptoDetail extends Component {
         } = this.props.crypto;
         
         const explorerLink = `https://chainz.cryptoid.info/${symbol.toString().toLowerCase()}/`;
-        const { viewStyle, percentPlusStyle, percentMinusStyle } = styles;
+        const icon = `https://festive-hermann-81ae5a.netlify.com/${symbol.toString().toLowerCase()}.svg`;
+
+        const { viewStyle, percentPlusStyle, percentMinusStyle, iconStyle } = styles;
         return (
             <ScrollView style={viewStyle}>
                 <Card>
+                    <CardSection style={{ justifyContent: 'center' }}>
+                        <SVGImage
+                            style={iconStyle}
+                            source={{ uri: icon}}
+                        />
+                    </CardSection>
                     <CardSection>
                         <ViewText title="Name" value={name} />
                     </CardSection>
@@ -80,6 +89,12 @@ const styles = StyleSheet.create({
     percentMinusStyle: {
         flex: 1,
         color: 'red'
+    },
+    iconStyle: {
+        width: 75,
+        height: 75,
+        flex: 1,
+        alignSelf: 'center'
     }
 })
 
