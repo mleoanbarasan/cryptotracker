@@ -13,16 +13,16 @@ class ListCryptoItem extends Component {
     render() {
         const { name, symbol, price_usd, percent_change_24h } = this.props.record;
         const { iconStyle, symbolStyle, nameStyle, priceStyle, percentPlusStyle, percentMinusStyle } = styles;
-        //const icon = `https://github.com/coinranking/cryptocurrency-icons/blob/master/icons/${symbol.toString().toLowerCase()}.svg`;
-        //console.log(icon);
+        const icon = `https://festive-hermann-81ae5a.netlify.com/${symbol.toString().toLowerCase()}.svg`;
+        // console.log(icon);
         return(
             <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
                 <View>
                     <CardSection>
-                        {/* <SVGImage
+                        <SVGImage
                             style={iconStyle}
-                            source={{ uri: icon,  __packager_asset:true}}
-                        /> */}
+                            source={{ uri: icon}}
+                        />
                         {/* <Text style={symbolStyle}> {symbol} </Text> */}
                         <Text style={nameStyle}> {name} </Text>
                         <Text style={priceStyle}> {price_usd} $ </Text>
